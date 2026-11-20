@@ -24,9 +24,9 @@ export default function Navbar() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#F5F1E8]/95 dark:bg-[#121115]/95 border-b border-champagne/25 shadow-sm transition-colors duration-300"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#F5F1E8]/95 dark:bg-[#121115]/95 border-b border-champagne/25 shadow-sm transition-colors duration-300 h-20 sm:h-22"
     >
-      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 h-20 flex items-center justify-between">
+      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 h-full flex items-center justify-between">
         {/* Brand Logo */}
         <Link
           href="/"

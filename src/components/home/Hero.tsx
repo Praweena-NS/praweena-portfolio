@@ -31,13 +31,13 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   return (
-    <section className="relative pt-20 sm:pt-24 lg:pt-24 pb-6 sm:pb-8 lg:min-h-[calc(100svh-1rem)] lg:flex lg:items-center overflow-hidden bg-[#F5F1E8] dark:bg-[#121115] transition-colors duration-300">
+    <section className="relative pt-28 sm:pt-32 lg:pt-28 pb-10 lg:min-h-[calc(100svh-1rem)] lg:flex lg:items-center overflow-hidden bg-[#F5F1E8] dark:bg-[#121115] transition-colors duration-300">
       {/* Background Subtle Gradient Accents */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-lavender/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-champagne/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
           
           {/* Left Column: Viewport-Optimized Staggered Editorial Typography */}
           <motion.div
@@ -58,7 +58,7 @@ export default function Hero() {
             {/* Large Serif Heading */}
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-5xl sm:text-6xl xl:text-[5rem] text-[#1C1A20] dark:text-[#F5F1E8] tracking-tight leading-[0.98] mb-2 sm:mb-2.5"
+              className="font-serif text-[2.65rem] sm:text-6xl xl:text-[5rem] text-[#1C1A20] dark:text-[#F5F1E8] tracking-tight leading-[1.02] mb-2 sm:mb-2.5"
             >
               Praweena NS
             </motion.h1>
@@ -125,7 +125,7 @@ export default function Hero() {
             {/* Editorial Mini Metrics Strip (100% Above-the-Fold on Desktop) */}
             <motion.div
               variants={itemVariants}
-              className="mt-5 sm:mt-6 pt-4 border-t border-champagne/25 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
+              className="mt-5 sm:mt-6 pt-4 border-t border-champagne/25 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg"
             >
               <div>
                 <p className="font-serif text-lg sm:text-xl text-[#1C1A20] dark:text-[#F5F1E8]">KHAIRA</p>
@@ -148,26 +148,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Subtle Couture Spine Divider in the Center Gutter (Wide Viewports) */}
-          <div className="hidden xl:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex-col items-center justify-center pointer-events-none z-10">
-            <div className="relative w-px h-72 bg-gradient-to-b from-transparent via-[#B6A17A]/40 to-transparent flex items-center justify-center">
-              <span
-                className="font-mono text-[10px] tracking-[0.28em] uppercase text-[#6E5D3F] dark:text-[#C9B38C] py-2 bg-[#F5F1E8] dark:bg-[#121115] whitespace-nowrap select-none"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                ✦ EST. 2025 ✦
-              </span>
-            </div>
-          </div>
-
           {/* Right Column: Centered Editorial Portrait Card with Zero Fold Clipping */}
-          <div className="lg:col-span-6 relative w-full flex justify-center">
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[430px] xl:max-w-[460px] mx-auto">
+          <div className="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] aspect-[4/5] max-h-[480px]">
               {/* Outer Decorative Architectural Hairline Frame */}
               <div className="absolute -inset-2.5 sm:-inset-3 rounded-2xl lg:rounded-[2rem] border border-champagne/30 -rotate-1 pointer-events-none transition-transform duration-700" />
               
-              {/* Image Container with 4:5 aspect ratio & max-h-[485px] constraint */}
-              <div className="relative aspect-[4/5] max-h-[485px] w-full overflow-hidden rounded-2xl lg:rounded-3xl shadow-2xl shadow-ink/15 bg-[#EBE5D8] group cursor-pointer">
+              {/* Image Container with 4:5 aspect ratio & max-h-[480px] constraint */}
+              <div className="relative aspect-[4/5] max-h-[480px] w-full overflow-hidden rounded-2xl lg:rounded-3xl shadow-2xl shadow-ink/15 bg-[#EBE5D8] group cursor-pointer">
                 <Image
                   src="/images/founder/praweena-hero.png"
                   alt="Praweena NS - Founder of KHAIRA Atelier"
@@ -175,7 +163,7 @@ export default function Hero() {
                   priority
                   fetchPriority="high"
                   quality={85}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 460px"
+                  sizes="(max-width: 1024px) 90vw, 460px"
                   className="object-cover object-top filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
                 />
 

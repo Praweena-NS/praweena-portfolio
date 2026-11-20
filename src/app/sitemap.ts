@@ -4,7 +4,7 @@ import journalData from "@/data/journal.json";
 import { Project, Article } from "@/types";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://praweenans.com";
+  const baseUrl = "https://praweena-portfolio.vercel.app";
 
   // Static core routes
   const staticRoutes: MetadataRoute.Sitemap = [

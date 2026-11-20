@@ -51,7 +51,7 @@ export default function AboutPageView({ profile }: AboutPageViewProps) {
   const pillarIcons = [Feather, Scissors, Compass];
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden selection:bg-lavender selection:text-ink">
+    <div className="pt-28 sm:pt-32 pb-16 md:pb-24 overflow-hidden selection:bg-lavender selection:text-ink">
       {/* ============================================================== */}
       {/* SECTION 1: EDITORIAL INTRO (Asymmetrical Two-Column) */}
       {/* ============================================================== */}

@@ -56,7 +56,7 @@ function PortfolioGalleryContent({ projects }: PortfolioGalleryProps) {
   };
 
   return (
-    <div className="pt-28 pb-16 md:pt-36 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
+    <div className="pt-28 sm:pt-32 pb-16 md:pt-36 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
         <div className="max-w-4xl xl:max-w-5xl">

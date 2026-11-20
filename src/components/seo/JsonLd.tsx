@@ -7,8 +7,8 @@ export function GlobalJsonLd() {
     "@type": "Person",
     name: profileData.name,
     alternateName: profileData.shortName || "Praweena",
-    url: "https://praweenans.com",
-    image: "https://praweenans.com/images/founder/praweena-hero.png",
+    url: "https://praweena-portfolio.vercel.app",
+    image: "https://praweena-portfolio.vercel.app/images/founder/praweena-hero.png",
     jobTitle: "Fashion Designer & Founder",
     description: profileData.bio,
     affiliation: {
@@ -19,7 +19,7 @@ export function GlobalJsonLd() {
       {
         "@type": "Organization",
         name: "KHAIRA Atelier",
-        url: "https://praweenans.com",
+        url: "https://praweena-portfolio.vercel.app",
         slogan: profileData.tagline,
         email: profileData.email,
       },
@@ -42,9 +42,9 @@ export function GlobalJsonLd() {
     "@context": "https://schema.org",
     "@type": "FashionStore",
     name: "KHAIRA Atelier",
-    url: "https://praweenans.com",
-    logo: "https://praweenans.com/brand/khaira-logo.png",
-    image: "https://praweenans.com/images/founder/praweena-hero.png",
+    url: "https://praweena-portfolio.vercel.app",
+    logo: "https://praweena-portfolio.vercel.app/brand/khaira-logo.png",
+    image: "https://praweena-portfolio.vercel.app/images/founder/praweena-hero.png",
     founder: {
       "@type": "Person",
       name: profileData.name,
@@ -107,20 +107,20 @@ export function ArticleJsonLd({ article }: { article: Article }) {
     author: {
       "@type": "Person",
       name: profileData.name,
-      url: "https://praweenans.com",
+      url: "https://praweena-portfolio.vercel.app",
     },
     publisher: {
       "@type": "Organization",
       name: "KHAIRA Atelier",
       logo: {
         "@type": "ImageObject",
-        url: "https://praweenans.com/brand/khaira-logo.png",
+        url: "https://praweena-portfolio.vercel.app/brand/khaira-logo.png",
       },
     },
     description: article.excerpt,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://praweenans.com/journal/${article.slug}`,
+      "@id": `https://praweena-portfolio.vercel.app/journal/${article.slug}`,
     },
   };
 

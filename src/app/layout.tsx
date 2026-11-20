@@ -9,53 +9,67 @@ import { GlobalJsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://praweenans.com"),
+  metadataBase: new URL("https://praweena-portfolio.vercel.app"),
   title: {
-    default: "Praweena NS | Fashion Designer & Founder of KHAIRA",
-    template: "%s | Praweena NS",
+    default: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
+    template: "%s | Praweena NS — KHAIRA Atelier",
   },
   description:
-    "Portfolio of Praweena NS, contemporary fashion designer, costume design researcher, and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
+    "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Specializing in Tamil Nadu textile heritage, Ahimsa silk architecture, bespoke bridal heirlooms, and avant-garde runway silhouettes — based in Coimbatore & Tiruppur, India.",
   keywords: [
     "Praweena NS",
     "KHAIRA Atelier",
-    "Fashion Designer Portfolio",
+    "Fashion Designer Coimbatore",
+    "Tiruppur Fashion Studio",
+    "Tamil Nadu Haute Couture",
     "Costume Design and Fashion",
-    "Floral Fusion",
-    "Ahimsa Silk Couture",
-    "Indian Haute Couture",
+    "KPR College of Arts Science and Research",
+    "Ahimsa Silk Gowns",
+    "Floral Fusion Co-Founder",
+    "Indian Avant-Garde Couture",
     "Bespoke Bridal Wear",
     "Textile Architecture",
-    "Coimbatore Fashion Designer",
+    "Kinetic Draping",
   ],
-  authors: [{ name: "Praweena NS", url: "https://praweenans.com" }],
+  authors: [{ name: "Praweena NS", url: "https://praweena-portfolio.vercel.app" }],
   creator: "Praweena NS",
   publisher: "KHAIRA Atelier",
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://praweenans.com",
-    siteName: "Praweena NS - Atelier KHAIRA",
-    title: "Praweena NS | Fashion Designer & Founder of KHAIRA",
+    url: "https://praweena-portfolio.vercel.app",
+    siteName: "Praweena NS — KHAIRA Atelier",
+    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
     description:
-      "Portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
+      "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
     images: [
       {
         url: "/images/founder/praweena-hero.png",
         width: 1200,
         height: 1600,
-        alt: "Praweena NS - Founder of KHAIRA Atelier",
+        alt: "Praweena NS — Founder of KHAIRA Atelier",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Praweena NS | Fashion Designer & Founder of KHAIRA",
+    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
     description:
-      "Portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
+      "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
     images: ["/images/founder/praweena-hero.png"],
   },
 };

@@ -109,7 +109,7 @@ export default function ProjectDetailView({
   }, [lightboxIndex, handleCloseLightbox, handlePrev, handleNext]);
 
   return (
-    <article className="pt-28 pb-24 md:pt-36 md:pb-32 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
+    <article className="pt-28 sm:pt-32 pb-24 md:pt-36 md:pb-32 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* Back to Portfolio Breadcrumb */}
       <div className="mb-10">
         <Link

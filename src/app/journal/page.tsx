@@ -90,7 +90,7 @@ export default function JournalPage() {
   const remainingArticles = articles.slice(1);
 
   return (
-    <div className="pt-24 pb-20 md:pt-32 md:pb-28 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
+    <div className="pt-28 sm:pt-32 pb-20 md:pt-36 md:pb-28 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* ── Top Header Split: Aligns Seamlessly Across Full Desktop Width ── */}
       <header className="mb-14 sm:mb-16 pb-8 border-b border-champagne/25">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">

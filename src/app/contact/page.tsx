@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+        url: "/images/founder/praweena-hero.png",
         width: 1200,
-        height: 800,
+        height: 1600,
         alt: "Praweena NS - Atelier Inquiries",
       },
     ],
@@ -68,7 +68,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
+    <div className="pt-28 sm:pt-32 pb-16 md:pt-36 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
         
         {/* Left Column: Direct Atelier Information */}
