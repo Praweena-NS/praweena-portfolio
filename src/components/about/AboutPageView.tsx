@@ -55,7 +55,7 @@ export default function AboutPageView({ profile }: AboutPageViewProps) {
       {/* ============================================================== */}
       {/* SECTION 1: EDITORIAL INTRO (Asymmetrical Two-Column) */}
       {/* ============================================================== */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-16 lg:mb-24">
+      <section className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 mb-16 lg:mb-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
           
           {/* Left Column: Praweena's Portrait (3:4 Editorial Aspect) */}
@@ -199,7 +199,7 @@ export default function AboutPageView({ profile }: AboutPageViewProps) {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-lavender/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-champagne/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+          <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 relative z-10">
             {/* Section Tag */}
             <div className="text-center mb-6">
               <span className="text-xs uppercase tracking-[0.35em] text-champagne font-mono">
@@ -300,7 +300,7 @@ export default function AboutPageView({ profile }: AboutPageViewProps) {
       {/* CO-FOUNDED VENTURE: FLORAL FUSION */}
       {/* ============================================================== */}
       {floralFusion && (
-        <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 my-14 md:my-20">
+        <section className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 my-14 md:my-20">
           <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-ink/[0.025] border border-champagne/30 shadow-sm relative overflow-hidden">
             {/* Subtle floral background glow */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-champagne/15 rounded-full blur-3xl pointer-events-none" />
@@ -392,7 +392,7 @@ export default function AboutPageView({ profile }: AboutPageViewProps) {
       {/* ============================================================== */}
       {/* SECTION 3: THE KHAIRA BRAND STORY & ACADEMIC JOURNEY */}
       {/* ============================================================== */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 my-14 md:my-20">
+      <section className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 my-14 md:my-20">
         {/* Brand Story Narrative */}
         {brandStory && (
           <motion.div

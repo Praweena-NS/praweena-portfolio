@@ -30,7 +30,7 @@ export default function CredibilityStrip() {
 
   return (
     <section className="w-full bg-[#EFE9DC] dark:bg-[#16141B] border-y border-champagne/30 py-8 sm:py-10 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-champagne/20">
           {credentials.map((cred, idx) => {
             const Icon = cred.icon;

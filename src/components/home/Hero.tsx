@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-lavender/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-champagne/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Viewport-Optimized Staggered Editorial Typography */}
@@ -150,7 +150,7 @@ export default function Hero() {
 
           {/* Right Column: Constrained Height Portrait Card with Zero Fold Clipping */}
           <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:ml-auto lg:mr-0">
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] lg:ml-auto lg:mr-0">
               {/* Outer Decorative Architectural Hairline Frame */}
               <div className="absolute -inset-2.5 sm:-inset-3 rounded-2xl lg:rounded-[2rem] border border-champagne/30 -rotate-1 pointer-events-none transition-transform duration-700" />
               

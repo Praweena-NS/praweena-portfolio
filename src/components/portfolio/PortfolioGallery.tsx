@@ -56,10 +56,10 @@ function PortfolioGalleryContent({ projects }: PortfolioGalleryProps) {
   };
 
   return (
-    <div className="pt-28 pb-16 md:pt-36 md:pb-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 selection:bg-lavender selection:text-ink">
+    <div className="pt-28 pb-16 md:pt-36 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl xl:max-w-5xl">
           <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] mb-4 font-display font-semibold">
             <Sparkles size={13} className="text-[#6E5D3F] dark:text-[#C9B38C] flex-shrink-0" />
             <span>Atelier Archive & Collections</span>
@@ -189,7 +189,7 @@ export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
   return (
     <Suspense
       fallback={
-        <div className="pt-36 pb-24 max-w-7xl mx-auto px-6 text-center font-mono text-xs uppercase tracking-widest text-champagne">
+        <div className="pt-36 pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 text-center font-mono text-xs uppercase tracking-widest text-champagne">
           Loading Curated Portfolio Archive...
         </div>
       }

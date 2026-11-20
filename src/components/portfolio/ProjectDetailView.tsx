@@ -109,7 +109,7 @@ export default function ProjectDetailView({
   }, [lightboxIndex, handleCloseLightbox, handlePrev, handleNext]);
 
   return (
-    <article className="pt-28 pb-24 md:pt-36 md:pb-32 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 selection:bg-lavender selection:text-ink">
+    <article className="pt-28 pb-24 md:pt-36 md:pb-32 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* Back to Portfolio Breadcrumb */}
       <div className="mb-10">
         <Link
@@ -125,7 +125,7 @@ export default function ProjectDetailView({
       </div>
 
       {/* Project Header */}
-      <header className="mb-16 max-w-5xl">
+      <header className="mb-16 max-w-6xl xl:max-w-7xl">
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6">
           {/* Category Badge */}
           <span className="border border-champagne text-[#1C1A20] dark:text-[#F5F1E8] px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-[0.25em] bg-champagne/10">
@@ -146,7 +146,7 @@ export default function ProjectDetailView({
           {project.title}
         </h1>
 
-        <p className="font-sans text-lg sm:text-xl md:text-2xl text-[#1C1A20]/80 dark:text-[#F5F1E8]/80 font-light leading-relaxed max-w-3xl">
+        <p className="font-sans text-lg sm:text-xl md:text-2xl text-[#1C1A20]/80 dark:text-[#F5F1E8]/80 font-light leading-relaxed max-w-4xl xl:max-w-5xl">
           {project.description}
         </p>
       </header>

@@ -68,8 +68,8 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 selection:bg-lavender selection:text-ink">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <div className="pt-24 pb-16 md:pt-32 md:pb-24 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
         
         {/* Left Column: Direct Atelier Information */}
         <div className="lg:col-span-5 flex flex-col justify-between">

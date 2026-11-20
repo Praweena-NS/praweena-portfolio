@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* Curated Works Teaser Section - Balanced responsive spacing & iPad 2-col grid */}
       <section className="py-14 md:py-20 lg:py-24 bg-[#F5F1E8] dark:bg-[#121115] border-t border-champagne/25 relative overflow-hidden transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
               <span className="text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] font-display font-semibold">
@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* Atelier Chronicles Section (Replaces InteractiveAtelierStudio) */}
       <section className="py-16 md:py-24 bg-[#F5F1E8] dark:bg-[#121115] border-t border-champagne/25 relative overflow-hidden transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
           {/* Section Header */}
           <div className="max-w-3xl mb-12 sm:mb-16">
             <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] mb-3 font-mono font-semibold">
@@ -121,7 +121,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-champagne/10 dark:bg-champagne/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-lavender/10 dark:bg-lavender/5 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 max-w-3xl">
+            <div className="relative z-10 max-w-4xl xl:max-w-5xl">
               <div className="inline-flex items-center space-x-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#6E5D3F] dark:text-[#C9B38C] border border-champagne/40 px-3.5 py-1 rounded-full bg-white/40 dark:bg-[#121115]/60 mb-6">
                 <span>ATELIER CHRONICLES • INAUGURAL EDITION</span>
               </div>
@@ -160,7 +160,7 @@ export default function Home() {
         <div className="absolute top-0 right-1/4 w-80 h-80 bg-lavender/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-champagne/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
+        <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 text-center relative z-10">
           <div className="inline-flex items-center space-x-2 text-[11px] uppercase tracking-[0.35em] text-champagne mb-6 font-display">
             <Sparkles size={13} />
             <span>Philosophy &amp; Manifesto</span>
@@ -191,37 +191,39 @@ export default function Home() {
 
       {/* Minimalist Atelier Consultation CTA Banner */}
       <section className="py-14 md:py-20 lg:py-24 bg-[#F5F1E8] dark:bg-[#121115] border-t border-champagne/25 relative transition-colors duration-300">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <span className="text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] font-display block mb-3 font-semibold">
-            Bespoke Commissions &amp; Collaborations
-          </span>
+        <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 text-center">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] font-display block mb-3 font-semibold">
+              Bespoke Commissions &amp; Collaborations
+            </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1A20] dark:text-[#F5F1E8] tracking-tight mb-5">
-            Sculpting Your Personal Silhouette
-          </h2>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1A20] dark:text-[#F5F1E8] tracking-tight mb-5">
+              Sculpting Your Personal Silhouette
+            </h2>
 
-          <p className="font-sans text-base sm:text-lg text-[#1C1A20]/75 dark:text-[#F5F1E8]/75 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            I accept a limited calendar of private couture commissions, bridal heirlooms, and bespoke salon appointments each season. Every garment is an individual dialogue in thread, movement, and form.
-          </p>
+            <p className="font-sans text-base sm:text-lg text-[#1C1A20]/75 dark:text-[#F5F1E8]/75 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+              I accept a limited calendar of private couture commissions, bridal heirlooms, and bespoke salon appointments each season. Every garment is an individual dialogue in thread, movement, and form.
+            </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-ink text-ivory dark:bg-champagne dark:text-[#121115] hover:bg-lavender hover:text-ink transition-all duration-300 font-sans text-xs uppercase tracking-[0.25em] shadow-lg shadow-ink/10 group cursor-pointer"
-            >
-              <span>Start a Consultation</span>
-              <ArrowUpRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              <Link
+                href="/contact"
+                className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-ink text-ivory dark:bg-champagne dark:text-[#121115] hover:bg-lavender hover:text-ink transition-all duration-300 font-sans text-xs uppercase tracking-[0.25em] shadow-lg shadow-ink/10 group cursor-pointer"
+              >
+                <span>Start a Consultation</span>
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+              </Link>
 
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center px-8 py-4 rounded-full border border-champagne/40 text-[#1C1A20] dark:text-[#F5F1E8] hover:border-lavender hover:text-lavender transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em]"
-            >
-              Explore All Collections
-            </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center px-8 py-4 rounded-full border border-champagne/40 text-[#1C1A20] dark:text-[#F5F1E8] hover:border-lavender hover:text-lavender transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em]"
+              >
+                Explore All Collections
+              </Link>
+            </div>
           </div>
         </div>
       </section>

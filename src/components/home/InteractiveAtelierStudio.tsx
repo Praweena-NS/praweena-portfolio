@@ -101,7 +101,7 @@ export default function InteractiveAtelierStudio() {
 
   return (
     <section className="py-16 md:py-24 border-t border-champagne/25 bg-[#F5F1E8] dark:bg-[#121115] relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center space-x-2.5 text-[11px] uppercase tracking-[0.3em] text-[#6E5D3F] dark:text-[#C9B38C] mb-3 font-display font-semibold">

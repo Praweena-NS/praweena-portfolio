@@ -26,7 +26,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
       className="fixed top-0 left-0 right-0 z-50 bg-[#F5F1E8]/95 dark:bg-[#121115]/95 border-b border-champagne/25 shadow-sm transition-colors duration-300"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between">
+      <div className="w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <Link
           href="/"

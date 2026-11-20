@@ -90,7 +90,7 @@ export default function JournalPage() {
   const remainingArticles = articles.slice(1);
 
   return (
-    <div className="pt-24 pb-20 md:pt-32 md:pb-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 selection:bg-lavender selection:text-ink">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-28 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
       {/* ── Top Header Split: Aligns Seamlessly Across Full Desktop Width ── */}
       <header className="mb-14 sm:mb-16 pb-8 border-b border-champagne/25">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
@@ -140,7 +140,7 @@ export default function JournalPage() {
                   </em>
                 </h2>
 
-                <p className="font-sans text-base sm:text-lg text-[#1C1A20]/75 dark:text-[#F5F1E8]/75 font-light leading-relaxed max-w-2xl">
+                <p className="font-sans text-base sm:text-lg text-[#1C1A20]/75 dark:text-[#F5F1E8]/75 font-light leading-relaxed max-w-3xl xl:max-w-4xl">
                   Praweena&rsquo;s inaugural essays on Tamil Nadu textile philosophy, Kovai &amp; Tiruppur craft traditions, and modern silhouette construction are being handcrafted with the same care as every stitch in her collections. Check back soon — or begin a conversation now.
                 </p>
               </div>

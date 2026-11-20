@@ -79,7 +79,7 @@ export default async function ArticlePage({
   return (
     <>
       <ArticleJsonLd article={article} />
-      <article className="pt-28 pb-24 md:pt-36 md:pb-32 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 selection:bg-lavender selection:text-ink">
+      <article className="pt-28 pb-24 md:pt-36 md:pb-32 w-full max-w-[1760px] mx-auto px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16 selection:bg-lavender selection:text-ink">
         {/* Back Link */}
         <div className="max-w-3xl mx-auto mb-10">
           <Link
