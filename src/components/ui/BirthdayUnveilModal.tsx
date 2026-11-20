@@ -514,10 +514,11 @@ function BirthdayUnveilContent() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -8, scale: 0.9 }}
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                        className="mb-3 sm:mb-4 px-5 sm:px-6 py-2 rounded-full bg-gradient-to-r from-[#DFD0A8]/30 via-[#F5F1E8] to-[#DFD0A8]/30 border-2 border-[#B6A17A] shadow-[0_0_28px_rgba(182,161,122,0.55)] flex items-center space-x-2 text-[#1C1A20] z-30 select-none will-change-transform"
+                        className="mb-3 sm:mb-4 px-5 sm:px-6 py-2 rounded-full bg-[#F5F1E8] border-2 border-[#B6A17A] shadow-xl flex items-center space-x-2 z-30 select-none will-change-transform"
+                        style={{ color: "#1C1A20" }}
                       >
                         <Sparkles size={16} className="text-[#8C7752] animate-pulse" />
-                        <span className="font-editorial italic font-semibold text-sm sm:text-base md:text-lg tracking-wide text-[#1C1A20]">
+                        <span className="font-editorial italic font-semibold text-sm sm:text-base md:text-lg tracking-wide" style={{ color: "#1C1A20" }}>
                           ✨ It&apos;s time to reveal! ✨
                         </span>
                         <Sparkles size={16} className="text-[#8C7752] animate-pulse" />
@@ -633,9 +634,12 @@ function BirthdayUnveilContent() {
                     {/* Bottom of Envelope: Live Countdown or Unlocked Prompt */}
                     <div className="relative z-20 pb-2 px-3 flex items-center justify-center">
                       {remainingMs > 0 ? (
-                        <div className="text-[#1C1A20] font-mono text-xs sm:text-sm tracking-[0.18em] bg-[#EFE9DC] border border-[#B6A17A]/60 px-4 py-1.5 rounded-full tabular-nums shadow-sm select-none flex items-center space-x-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#B6A17A] animate-pulse inline-block" />
-                          <span>{formatCountdown(remainingMs)}</span>
+                        <div
+                          className="font-mono font-semibold text-xs sm:text-sm tracking-[0.16em] tabular-nums bg-[#EFE9DC] border border-[#B6A17A]/70 shadow-sm select-none flex items-center space-x-2 px-4 py-1.5 rounded-full"
+                          style={{ color: "#1C1A20" }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#B6A17A] animate-pulse inline-block flex-shrink-0" />
+                          <span style={{ color: "#1C1A20" }}>{formatCountdown(remainingMs)}</span>
                         </div>
                       ) : (
                         <motion.div
