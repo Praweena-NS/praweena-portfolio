@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, Suspense, useCallback, useMemo } from "react";
+import { useEffect, useState, Suspense, useCallback, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -287,6 +287,25 @@ function TwixPuppyCard() {
   );
 }
 
+/* ── Target Birthday Timestamp (Nov 23, 2026 12:00 AM IST) ── */
+const UNLOCK_TIMESTAMP = new Date("2026-11-23T00:00:00+05:30").getTime();
+
+function formatCountdown(ms: number): string {
+  if (ms <= 0) return "00H : 00M : 00S";
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const pad = (n: number) => n.toString().padStart(2, "0");
+
+  if (days > 0) {
+    return `${pad(days)}D : ${pad(hours)}H : ${pad(minutes)}M : ${pad(seconds)}S`;
+  }
+  return `${pad(hours)}H : ${pad(minutes)}M : ${pad(seconds)}S`;
+}
+
 function BirthdayUnveilContent() {
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
@@ -294,15 +313,43 @@ function BirthdayUnveilContent() {
   const [stage, setStage] = useState<"sealed" | "letter">("sealed");
   const [isUnsealing, setIsUnsealing] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
+  const [burstKey, setBurstKey] = useState(0);
+
+  /* ── Countdown & Lock States ── */
+  const [targetTimestamp, setTargetTimestamp] = useState<number>(UNLOCK_TIMESTAMP);
+  const [remainingMs, setRemainingMs] = useState<number>(() => UNLOCK_TIMESTAMP - Date.now());
+  const [isShaking, setIsShaking] = useState(false);
+  const [showLockNotice, setShowLockNotice] = useState(false);
+  const [showRevealPopup, setShowRevealPopup] = useState(false);
+
+  const prevRemainingRef = useRef<number>(UNLOCK_TIMESTAMP - Date.now());
+  const lockNoticeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const particles = useMemo(() => generateParticles(24), []);
 
-  /* ── Activation: ALWAYS open when ?gift=minion23 or ?reset=minion23 is present ── */
+  /* ── Activation & Target Time Initialization ── */
   useEffect(() => {
     setMounted(true);
 
     const reset = searchParams.get("reset");
     const gift = searchParams.get("gift");
+    const demo = searchParams.get("demo");
+
+    let target = UNLOCK_TIMESTAMP;
+    if (demo === "10s") {
+      target = Date.now() + 10_000;
+    }
+    setTargetTimestamp(target);
+    const initialRemaining = target - Date.now();
+    setRemainingMs(initialRemaining);
+    prevRemainingRef.current = initialRemaining;
+
+    if (initialRemaining <= 0) {
+      setShowRevealPopup(true);
+      setBurstKey((k) => k + 1);
+      setShowParticles(true);
+      setTimeout(() => setShowParticles(false), 1500);
+    }
 
     if (reset === "minion23" || gift === "minion23") {
       // Always open the modal every time the gift link is visited
@@ -317,10 +364,33 @@ function BirthdayUnveilContent() {
     setIsOpen(false);
   }, [searchParams]);
 
-  /* ── Wax Seal Click Handler (Butter-Smooth 60fps Transition Stage 1 -> Stage 2) ── */
+  /* ── Live Countdown Timer (Ticks Every 250ms) ── */
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const diff = targetTimestamp - now;
+      setRemainingMs(diff);
+
+      // Moment timer transitions from > 0 to <= 0
+      if (prevRemainingRef.current > 0 && diff <= 0) {
+        setShowRevealPopup(true);
+        setBurstKey((k) => k + 1);
+        setShowParticles(true);
+        setTimeout(() => setShowParticles(false), 2000);
+      }
+      prevRemainingRef.current = diff;
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, [isOpen, targetTimestamp]);
+
+  /* ── Wax Seal Click Handler (Stage 1 -> Stage 2) ── */
   const handleUnseal = useCallback(() => {
     if (isUnsealing) return;
     setIsUnsealing(true);
+    setBurstKey((k) => k + 1);
     setShowParticles(true);
 
     setTimeout(() => {
@@ -329,6 +399,26 @@ function BirthdayUnveilContent() {
       setShowParticles(false);
     }, 550);
   }, [isUnsealing]);
+
+  /* ── Seal Interaction Handler: Locked vs Unlocked ── */
+  const handleSealClick = useCallback(() => {
+    if (isUnsealing) return;
+
+    if (remainingMs > 0) {
+      // Trigger subtle shake animation & inline lock notice
+      setIsShaking(true);
+      setShowLockNotice(true);
+      if (lockNoticeTimerRef.current) clearTimeout(lockNoticeTimerRef.current);
+      lockNoticeTimerRef.current = setTimeout(() => {
+        setShowLockNotice(false);
+      }, 2500);
+      setTimeout(() => setIsShaking(false), 450);
+      return;
+    }
+
+    // Unlocked -> Open
+    handleUnseal();
+  }, [isUnsealing, remainingMs, handleUnseal]);
 
   /* ── Dismiss Handler: Close modal & clean URL so refresh shows portfolio ── */
   const handleDismiss = useCallback(() => {
@@ -383,7 +473,7 @@ function BirthdayUnveilContent() {
                 const targetY = Math.sin(p.angle) * p.distance;
                 return (
                   <motion.div
-                    key={p.id}
+                    key={`${p.id}-${burstKey}`}
                     className="absolute w-2 h-2 rounded-full pointer-events-none z-40 will-change-transform"
                     style={{
                       backgroundColor: p.color,
@@ -413,76 +503,154 @@ function BirthdayUnveilContent() {
                    STAGE 1: THE SEALED COUTURE ENVELOPE (With Cake Wax Seal)
                    ═══════════════════════════════════════════════════════════════ */
                 <motion.div
-                  key="stage-sealed"
-                  initial={{ scale: 0.96, opacity: 0, y: 12 }}
-                  animate={{ scale: 1, opacity: 1, y: 0 }}
-                  exit={{ scale: 0.96, opacity: 0, y: -8 }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full max-w-xl my-auto aspect-[16/11] min-h-[380px] sm:min-h-[400px] bg-[#F5F1E8] rounded-2xl shadow-2xl border border-[#B6A17A]/50 overflow-hidden flex flex-col items-center justify-between p-6 sm:p-8 text-center will-change-transform"
+                  key="stage-sealed-wrapper"
+                  className="relative w-full max-w-xl my-auto flex flex-col items-center"
                 >
-                  {/* Outer Decorative Architectural Hairline */}
-                  <div className="absolute inset-3 rounded-xl border border-[#B6A17A]/30 pointer-events-none" />
+                  {/* Glowing Champagne-Gold Popup Banner right above envelope */}
+                  <AnimatePresence>
+                    {(remainingMs <= 0 || showRevealPopup) && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 12, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -8, scale: 0.9 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                        className="mb-3 sm:mb-4 px-5 sm:px-6 py-2 rounded-full bg-gradient-to-r from-[#DFD0A8]/30 via-[#F5F1E8] to-[#DFD0A8]/30 border-2 border-[#B6A17A] shadow-[0_0_28px_rgba(182,161,122,0.55)] flex items-center space-x-2 text-[#1C1A20] z-30 select-none will-change-transform"
+                      >
+                        <Sparkles size={16} className="text-[#8C7752] animate-pulse" />
+                        <span className="font-editorial italic font-semibold text-sm sm:text-base md:text-lg tracking-wide text-[#1C1A20]">
+                          ✨ It&apos;s time to reveal! ✨
+                        </span>
+                        <Sparkles size={16} className="text-[#8C7752] animate-pulse" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-                  {/* Top of Envelope Header */}
-                  <div className="relative z-20 flex flex-col items-center space-y-1.5 pt-2 px-4 py-1 rounded-2xl bg-[#F5F1E8]">
-                    <div className="inline-flex items-center space-x-2 text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#6E5D3F] font-display font-semibold px-3 py-1 rounded-full bg-[#B6A17A]/10 border border-[#B6A17A]/30 whitespace-nowrap">
-                      <Sparkles size={11} className="text-[#6E5D3F]" />
-                      <span>NOVEMBER 23 • FIVE YEARS OF FRIENDSHIP</span>
+                  <motion.div
+                    key="stage-sealed"
+                    initial={{ scale: 0.96, opacity: 0, y: 12 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    exit={{ scale: 0.96, opacity: 0, y: -8 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative w-full aspect-[16/11] min-h-[380px] sm:min-h-[400px] bg-[#F5F1E8] rounded-2xl shadow-2xl border border-[#B6A17A]/50 overflow-hidden flex flex-col items-center justify-between p-6 sm:p-8 text-center will-change-transform"
+                  >
+                    {/* Outer Decorative Architectural Hairline */}
+                    <div className="absolute inset-3 rounded-xl border border-[#B6A17A]/30 pointer-events-none" />
+
+                    {/* Top of Envelope Header */}
+                    <div className="relative z-20 flex flex-col items-center space-y-1.5 pt-2 px-4 py-1 rounded-2xl bg-[#F5F1E8]">
+                      <div className="inline-flex items-center space-x-2 text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#6E5D3F] font-display font-semibold px-3 py-1 rounded-full bg-[#B6A17A]/10 border border-[#B6A17A]/30 whitespace-nowrap">
+                        <Sparkles size={11} className="text-[#6E5D3F]" />
+                        <span>NOVEMBER 23 • FIVE YEARS OF FRIENDSHIP</span>
+                      </div>
+                      <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#4A4550] font-sans font-medium whitespace-nowrap">
+                        FOR MY BEST FRIEND, MINION 💗
+                      </span>
                     </div>
-                    <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#4A4550] font-sans font-medium whitespace-nowrap">
-                      FOR MY BEST FRIEND, MINION 💗
-                    </span>
-                  </div>
 
-                  {/* ── Intersecting Silk Ribbons ── */}
-                  <motion.div
-                    className="absolute left-0 h-2 bg-gradient-to-r from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
-                    style={{ top: "50%", width: "50%", marginTop: -4 }}
-                    initial={{ x: 0, opacity: 1 }}
-                    animate={isUnsealing ? { x: "-120%", opacity: 0 } : { x: 0, opacity: 1 }}
-                    transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
-                  />
-                  <motion.div
-                    className="absolute right-0 h-2 bg-gradient-to-l from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
-                    style={{ top: "50%", width: "50%", marginTop: -4 }}
-                    initial={{ x: 0, opacity: 1 }}
-                    animate={isUnsealing ? { x: "120%", opacity: 0 } : { x: 0, opacity: 1 }}
-                    transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
-                  />
+                    {/* ── Intersecting Silk Ribbons ── */}
+                    <motion.div
+                      className="absolute left-0 h-2 bg-gradient-to-r from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
+                      style={{ top: "50%", width: "50%", marginTop: -4 }}
+                      initial={{ x: 0, opacity: 1 }}
+                      animate={isUnsealing ? { x: "-120%", opacity: 0 } : { x: 0, opacity: 1 }}
+                      transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
+                    />
+                    <motion.div
+                      className="absolute right-0 h-2 bg-gradient-to-l from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
+                      style={{ top: "50%", width: "50%", marginTop: -4 }}
+                      initial={{ x: 0, opacity: 1 }}
+                      animate={isUnsealing ? { x: "120%", opacity: 0 } : { x: 0, opacity: 1 }}
+                      transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
+                    />
 
-                  <motion.div
-                    className="absolute top-0 w-2 bg-gradient-to-b from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
-                    style={{ left: "50%", height: "50%", marginLeft: -4 }}
-                    initial={{ y: 0, opacity: 1 }}
-                    animate={isUnsealing ? { y: "-120%", opacity: 0 } : { y: 0, opacity: 1 }}
-                    transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
-                  />
-                  <motion.div
-                    className="absolute bottom-0 w-2 bg-gradient-to-t from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
-                    style={{ left: "50%", height: "50%", marginLeft: -4 }}
-                    initial={{ y: 0, opacity: 1 }}
-                    animate={isUnsealing ? { y: "120%", opacity: 0 } : { y: 0, opacity: 1 }}
-                    transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
-                  />
+                    <motion.div
+                      className="absolute top-0 w-2 bg-gradient-to-b from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
+                      style={{ left: "50%", height: "50%", marginLeft: -4 }}
+                      initial={{ y: 0, opacity: 1 }}
+                      animate={isUnsealing ? { y: "-120%", opacity: 0 } : { y: 0, opacity: 1 }}
+                      transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
+                    />
+                    <motion.div
+                      className="absolute bottom-0 w-2 bg-gradient-to-t from-[#B6A17A]/70 via-[#9281CE] to-[#B6A17A]/70 pointer-events-none shadow-sm z-10 will-change-transform"
+                      style={{ left: "50%", height: "50%", marginLeft: -4 }}
+                      initial={{ y: 0, opacity: 1 }}
+                      animate={isUnsealing ? { y: "120%", opacity: 0 } : { y: 0, opacity: 1 }}
+                      transition={isUnsealing ? { duration: 0.55, ease: [0.22, 1, 0.36, 1] } : {}}
+                    />
 
-                  {/* ── Center: Interactive 3D Gold Wax Seal ── */}
-                  <div className="relative z-30 my-auto">
-                    <button
-                      type="button"
-                      onClick={handleUnseal}
-                      aria-label="Tap the cake seal to open your birthday gift"
-                      className="group cursor-pointer p-2 rounded-full focus:outline-none transition-transform active:scale-95"
-                    >
-                      <WaxSeal breaking={isUnsealing} />
-                    </button>
-                  </div>
+                    {/* ── Center: Interactive 3D Gold Wax Seal ── */}
+                    <div className="relative z-30 my-auto flex flex-col items-center">
+                      <AnimatePresence>
+                        {showLockNotice && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 6, scale: 0.92 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -4, scale: 0.92 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute -top-10 whitespace-nowrap px-3.5 py-1 rounded-full bg-[#1C1A20] text-[#F5F1E8] border border-[#B6A17A]/70 text-[10px] sm:text-xs font-mono font-medium shadow-xl pointer-events-none z-40 flex items-center space-x-1.5"
+                          >
+                            <span>🔒 Unlocks Nov 23 at 12:00 AM</span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
-                  {/* Bottom of Envelope: Subtle Italic Prompt */}
-                  <div className="relative z-20 pb-2 px-5 py-1 rounded-full bg-[#F5F1E8]">
-                    <p className="font-editorial italic text-sm sm:text-base text-[#4A4550] tracking-wide">
-                      Tap the Cake Seal to Open Your Birthday Gift ✦
-                    </p>
-                  </div>
+                      <motion.div
+                        animate={isShaking ? { x: [-5, 5, -4, 4, 0] } : { x: 0 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        className="relative flex items-center justify-center"
+                      >
+                        {/* Soft golden pulse ring when unlocked */}
+                        {remainingMs <= 0 && (
+                          <motion.div
+                            className="absolute -inset-2.5 rounded-full border-2 border-[#B6A17A]/80 pointer-events-none"
+                            animate={{
+                              scale: [1, 1.15, 1],
+                              opacity: [0.8, 0.25, 0.8],
+                            }}
+                            transition={{
+                              duration: 2.2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          />
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={handleSealClick}
+                          aria-label={
+                            remainingMs <= 0
+                              ? "Tap the cake seal to open your birthday gift"
+                              : "Locked until November 23 at 12:00 AM"
+                          }
+                          className="group cursor-pointer p-2 rounded-full focus:outline-none transition-transform active:scale-95"
+                        >
+                          <WaxSeal breaking={isUnsealing} />
+                        </button>
+                      </motion.div>
+                    </div>
+
+                    {/* Bottom of Envelope: Live Countdown or Unlocked Prompt */}
+                    <div className="relative z-20 pb-2 px-3 flex items-center justify-center">
+                      {remainingMs > 0 ? (
+                        <div className="text-[#1C1A20] font-mono text-xs sm:text-sm tracking-[0.18em] bg-[#EFE9DC] border border-[#B6A17A]/60 px-4 py-1.5 rounded-full tabular-nums shadow-sm select-none flex items-center space-x-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#B6A17A] animate-pulse inline-block" />
+                          <span>{formatCountdown(remainingMs)}</span>
+                        </div>
+                      ) : (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.4 }}
+                          className="px-5 py-1 rounded-full bg-[#F5F1E8]"
+                        >
+                          <p className="font-editorial italic text-sm sm:text-base text-[#4A4550] tracking-wide">
+                            Tap the Cake Seal to Open Your Birthday Gift ✦
+                          </p>
+                        </motion.div>
+                      )}
+                    </div>
+                  </motion.div>
                 </motion.div>
               ) : (
                 /* ═══════════════════════════════════════════════════════════════
