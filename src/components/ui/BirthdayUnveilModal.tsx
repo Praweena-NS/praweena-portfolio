@@ -4,7 +4,7 @@ import { useEffect, useState, Suspense, useCallback, useMemo, useRef } from "rea
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Heart, X } from "lucide-react";
+import { Sparkles, Heart } from "lucide-react";
 
 /* ── Lightweight Particle Helpers for 60fps Couture Burst ── */
 interface Particle {
@@ -454,16 +454,6 @@ function BirthdayUnveilContent() {
           {/* Radial Ambient Glows (Fixed GPU composited) */}
           <div className="fixed top-1/4 left-1/4 w-96 h-96 bg-[#B6A17A]/15 rounded-full blur-3xl pointer-events-none will-change-transform" />
           <div className="fixed bottom-1/4 right-1/4 w-96 h-96 bg-[#9281CE]/20 rounded-full blur-3xl pointer-events-none will-change-transform" />
-
-          {/* Close button (top right fixed) */}
-          <button
-            type="button"
-            onClick={handleDismiss}
-            className="fixed top-5 right-5 sm:top-6 sm:right-6 p-3 rounded-full text-[#F5F1E8]/70 hover:text-[#F5F1E8] hover:bg-white/10 transition-colors z-50 cursor-pointer"
-            aria-label="Close dedication"
-          >
-            <X size={24} />
-          </button>
 
           {/* Lightweight Particle Burst System (Pure GPU translate3d) */}
           <AnimatePresence>
