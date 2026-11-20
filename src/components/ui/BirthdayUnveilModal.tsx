@@ -204,30 +204,32 @@ function TwixPuppyCard() {
   const handleTwixClick = () => {
     setIsHopping(true);
     const newBursts = [
-      { id: Date.now() + 1, x: -35 + Math.random() * 15, y: -45 - Math.random() * 20 },
-      { id: Date.now() + 2, x: 0 + Math.random() * 10, y: -55 - Math.random() * 20 },
-      { id: Date.now() + 3, x: 30 + Math.random() * 15, y: -45 - Math.random() * 20 },
+      { id: Date.now() + 1, x: -45 + Math.random() * 20, y: -50 - Math.random() * 25 },
+      { id: Date.now() + 2, x: -5 + Math.random() * 10, y: -65 - Math.random() * 25 },
+      { id: Date.now() + 3, x: 35 + Math.random() * 20, y: -50 - Math.random() * 25 },
+      { id: Date.now() + 4, x: -25 + Math.random() * 15, y: -30 - Math.random() * 20 },
+      { id: Date.now() + 5, x: 25 + Math.random() * 15, y: -30 - Math.random() * 20 },
     ];
     setBursts(newBursts);
-    setTimeout(() => setIsHopping(false), 450);
-    setTimeout(() => setBursts([]), 1200);
+    setTimeout(() => setIsHopping(false), 500);
+    setTimeout(() => setBursts([]), 1400);
   };
 
   return (
     <div
       onClick={handleTwixClick}
-      className="relative w-full max-w-md mx-auto my-3 p-4 sm:p-5 rounded-2xl bg-[#EFE9DC]/90 border border-[#B6A17A]/50 shadow-md cursor-pointer group hover:border-[#9281CE]/70 transition-all select-none overflow-hidden"
+      className="relative w-full h-auto min-h-fit overflow-visible mx-auto my-3 sm:my-4 p-5 sm:p-6 rounded-2xl bg-[#EFE9DC]/95 border border-[#B6A17A]/50 shadow-md cursor-pointer group hover:border-[#9281CE]/70 transition-all select-none"
     >
       {/* Floating Paw Print Bursts on Click */}
       <AnimatePresence>
         {bursts.map((b) => (
           <motion.div
             key={b.id}
-            initial={{ opacity: 1, scale: 0.6, x: 0, y: 0 }}
-            animate={{ opacity: 0, scale: 1.25, x: b.x, y: b.y }}
+            initial={{ opacity: 1, scale: 0.5, x: 0, y: 0 }}
+            animate={{ opacity: 0, scale: 1.35, x: b.x, y: b.y }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-1/2 top-10 pointer-events-none text-base z-30"
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute left-1/2 top-16 pointer-events-none text-lg z-30"
           >
             🐾
           </motion.div>
@@ -235,152 +237,49 @@ function TwixPuppyCard() {
       </AnimatePresence>
 
       {/* Top Eyebrow */}
-      <div className="flex items-center justify-center space-x-1.5 mb-2.5">
-        <span className="text-[10px] font-mono uppercase tracking-[0.24em] text-[#59469C] font-semibold px-3 py-0.5 rounded-full bg-[#9281CE]/15 border border-[#9281CE]/30">
+      <div className="flex items-center justify-center space-x-1.5 mb-3.5">
+        <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.24em] text-[#59469C] font-semibold px-3 py-1 rounded-full bg-[#9281CE]/15 border border-[#9281CE]/30">
           🐾 SPECIAL PAW-PRINT WISH FROM TWIX
         </span>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 text-center sm:text-left">
-        {/* Animated Shih Tzu Puppy Vector Illustration */}
+      {/* Shih Tzu Puppy Center Showcase */}
+      <div className="flex flex-col items-center text-center">
+        {/* Animated Twix Image with Idle Bob/Tilt & Click Hop */}
         <motion.div
-          animate={isHopping ? { y: [0, -8, 0] } : {}}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative flex-shrink-0 w-20 h-20 sm:w-22 sm:h-22 cursor-pointer"
+          animate={
+            isHopping
+              ? { scale: [1, 1.08, 1], y: [0, -10, 0] }
+              : { y: [0, -4, 0], rotate: [-1.5, 1.5, -1.5] }
+          }
+          transition={
+            isHopping
+              ? { duration: 0.45, ease: "easeOut" }
+              : { duration: 2.8, repeat: Infinity, ease: "easeInOut" }
+          }
+          className="relative w-28 h-28 sm:w-32 sm:h-32 mb-3 cursor-pointer will-change-transform flex items-center justify-center"
         >
-          <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md overflow-visible">
-            {/* Wagging Fluffy Tail (Behind body) */}
-            <motion.path
-              d="M 68 62 C 84 55 92 42 88 32 C 82 30 74 42 66 54"
-              fill="#C89D72"
-              stroke="#A8723E"
-              strokeWidth="1.2"
-              animate={{ rotate: [-16, 20, -16] }}
-              transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "68px", originY: "62px" }}
-            />
-            {/* Tail White Tip */}
-            <motion.circle
-              cx="86"
-              cy="34"
-              r="4.5"
-              fill="#FDFBF7"
-              animate={{ rotate: [-16, 20, -16] }}
-              transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "68px", originY: "62px" }}
-            />
-
-            {/* Body */}
-            <ellipse cx="50" cy="70" rx="20" ry="16" fill="#C89D72" stroke="#A8723E" strokeWidth="1" />
-            <ellipse cx="50" cy="71" rx="14" ry="12" fill="#FDFBF7" />
-
-            {/* Left Ear (Fluffy & Wiggling) */}
-            <motion.path
-              d="M 28 36 C 14 42 12 60 22 66 C 26 58 32 46 32 38 Z"
-              fill="#C89D72"
-              stroke="#A8723E"
-              strokeWidth="0.8"
-              animate={{ rotate: [-4, 4, -4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "30px", originY: "36px" }}
-            />
-            {/* Left Ear Inner Cream Hair */}
-            <motion.path
-              d="M 24 44 C 18 50 18 60 23 62 C 26 56 28 48 26 44 Z"
-              fill="#FDFBF7"
-              animate={{ rotate: [-4, 4, -4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "30px", originY: "36px" }}
-            />
-
-            {/* Right Ear (Fluffy & Wiggling) */}
-            <motion.path
-              d="M 72 36 C 86 42 88 60 78 66 C 74 58 68 46 68 38 Z"
-              fill="#C89D72"
-              stroke="#A8723E"
-              strokeWidth="0.8"
-              animate={{ rotate: [4, -4, 4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "70px", originY: "36px" }}
-            />
-            {/* Right Ear Inner Cream Hair */}
-            <motion.path
-              d="M 76 44 C 82 50 82 60 77 62 C 74 56 72 48 74 44 Z"
-              fill="#FDFBF7"
-              animate={{ rotate: [4, -4, 4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ originX: "70px", originY: "36px" }}
-            />
-
-            {/* Fluffy Round Head */}
-            <circle cx="50" cy="44" r="22" fill="#C89D72" stroke="#A8723E" strokeWidth="0.8" />
-            <ellipse cx="50" cy="45" rx="17" ry="15" fill="#FDFBF7" />
-
-            {/* Caramel Eye Patches (Shih Tzu classic markings) */}
-            <ellipse cx="40" cy="42" rx="7.5" ry="7" fill="#C89D72" opacity="0.38" />
-            <ellipse cx="60" cy="42" rx="7.5" ry="7" fill="#C89D72" opacity="0.38" />
-
-            {/* Left Eye with Star Shine & Blink */}
-            <motion.g
-              animate={{ scaleY: [1, 1, 0.1, 1, 1] }}
-              transition={{ duration: 3.5, repeat: Infinity, times: [0, 0.9, 0.93, 0.96, 1] }}
-              style={{ originX: "41px", originY: "42px" }}
-            >
-              <circle cx="41" cy="42" r="4.2" fill="#1C1A20" />
-              <circle cx="39.8" cy="40.8" r="1.4" fill="#FFFFFF" />
-              <circle cx="42.5" cy="43.2" r="0.6" fill="#FFFFFF" />
-            </motion.g>
-
-            {/* Right Eye with Star Shine & Blink */}
-            <motion.g
-              animate={{ scaleY: [1, 1, 0.1, 1, 1] }}
-              transition={{ duration: 3.5, repeat: Infinity, times: [0, 0.9, 0.93, 0.96, 1] }}
-              style={{ originX: "59px", originY: "42px" }}
-            >
-              <circle cx="59" cy="42" r="4.2" fill="#1C1A20" />
-              <circle cx="57.8" cy="40.8" r="1.4" fill="#FFFFFF" />
-              <circle cx="60.5" cy="43.2" r="0.6" fill="#FFFFFF" />
-            </motion.g>
-
-            {/* Fluffy Snout / Mustache */}
-            <ellipse cx="50" cy="52" rx="8.5" ry="6.5" fill="#FDFBF7" stroke="#C89D72" strokeWidth="0.6" />
-
-            {/* Cute Black Button Nose */}
-            <polygon points="50,47.5 46.5,49.5 53.5,49.5" fill="#2A2730" />
-            <circle cx="49" cy="48.5" r="0.5" fill="#FFFFFF" opacity="0.6" />
-
-            {/* Little Mouth & Pink Tongue */}
-            <path d="M 47.5 52 Q 50 54 52.5 52" stroke="#4A4550" strokeWidth="1" strokeLinecap="round" fill="none" />
-            <path d="M 48.5 53 Q 50 56.5 51.5 53 Z" fill="#F472B6" stroke="#EC4899" strokeWidth="0.4" />
-
-            {/* Lavender Top-Knot Bow with Gold Center */}
-            <g transform="translate(50, 22)">
-              {/* Fluffy top hair puff */}
-              <ellipse cx="0" cy="0" rx="6" ry="4" fill="#FDFBF7" />
-              {/* Bow Left Ribbon */}
-              <path d="M 0 0 C -6 -5 -8 3 -1 1 Z" fill="#9281CE" stroke="#59469C" strokeWidth="0.5" />
-              {/* Bow Right Ribbon */}
-              <path d="M 0 0 C 6 -5 8 3 1 1 Z" fill="#9281CE" stroke="#59469C" strokeWidth="0.5" />
-              {/* Bow Center Gold Knot */}
-              <circle cx="0" cy="0" r="2.2" fill="#B6A17A" stroke="#8C7752" strokeWidth="0.5" />
-            </g>
-
-            {/* Front Paws */}
-            <ellipse cx="43" cy="78" rx="4" ry="3.5" fill="#FDFBF7" stroke="#C89D72" strokeWidth="0.6" />
-            <ellipse cx="57" cy="78" rx="4" ry="3.5" fill="#FDFBF7" stroke="#C89D72" strokeWidth="0.6" />
-          </svg>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/shih_tzu/Shih_Tzu.png"
+            alt="Twix the Shih Tzu puppy"
+            className="w-full h-full object-contain select-none drop-shadow-[0_10px_18px_rgba(28,26,32,0.18)] transition-transform group-hover:scale-105 duration-300"
+            draggable={false}
+          />
         </motion.div>
 
-        {/* Note Content */}
-        <div className="flex-1">
-          <h4 className="font-serif text-xl sm:text-2xl text-[#1C1A20] font-semibold leading-snug">
+        {/* Note Content directly below Twix */}
+        <div className="w-full max-w-md mx-auto space-y-2">
+          <h4 className="font-serif text-xl sm:text-2xl text-[#1C1A20] font-semibold tracking-tight">
             Happy Birthday, Mummy! 🐶💗
           </h4>
-          <p className="font-sans text-sm sm:text-base text-[#3A3540] italic leading-relaxed mt-1">
+          <p className="font-sans text-sm sm:text-base text-[#3A3540] italic leading-relaxed px-1">
             &ldquo;Woof! Sending a million tail wags, warm puppy cuddles, and endless love to the sweetest Mummy in the world. Have the most magical birthday! — Your little fur baby, Twix 🐾✨&rdquo;
           </p>
-          <div className="inline-flex items-center space-x-1 mt-2 text-[11px] font-mono uppercase tracking-wider text-[#6E5D3F]">
-            <span>(Tap Twix for birthday tail wags 🐾)</span>
+          <div className="pt-1">
+            <span className="inline-block text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#6E5D3F]">
+              (TAP TWIX FOR BIRTHDAY TAIL WAGS 🐾)
+            </span>
           </div>
         </div>
       </div>
@@ -591,7 +490,7 @@ function BirthdayUnveilContent() {
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.96, opacity: 0, y: -8 }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="relative max-w-xl w-full max-h-[92vh] overflow-y-auto bg-[#F5F1E8] rounded-2xl shadow-2xl border border-[#B6A17A]/50 flex flex-col items-center p-4 sm:p-6 text-center will-change-transform"
+                className="relative max-w-xl w-full max-h-[90vh] overflow-y-auto bg-[#F5F1E8] rounded-2xl shadow-2xl border border-[#B6A17A]/50 flex flex-col items-center p-5 sm:p-6 md:p-8 text-center will-change-transform"
               >
                 {/* Outer Decorative Architectural Hairline */}
                 <div className="absolute inset-3 rounded-xl border border-[#B6A17A]/30 pointer-events-none" />
