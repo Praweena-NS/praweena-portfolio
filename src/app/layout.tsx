@@ -11,11 +11,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://praweena-portfolio.vercel.app"),
   title: {
-    default: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
+    default: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Tiruppur & Coimbatore",
     template: "%s | Praweena NS — KHAIRA Atelier",
   },
   description:
-    "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Specializing in Tamil Nadu textile heritage, Ahimsa silk architecture, bespoke bridal heirlooms, and avant-garde runway silhouettes — based in Coimbatore & Tiruppur, India.",
+    "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Specializing in Tamil Nadu textile heritage, Ahimsa silk architecture, bespoke bridal heirlooms, and avant-garde runway silhouettes — based in Tiruppur & Coimbatore, India.",
   keywords: [
     "Praweena NS",
     "KHAIRA Atelier",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://praweena-portfolio.vercel.app",
     siteName: "Praweena NS — KHAIRA Atelier",
-    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
+    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Tiruppur & Coimbatore",
     description:
       "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
     images: [
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Coimbatore & Tiruppur",
+    title: "Praweena NS | Fashion Designer & Founder of KHAIRA Atelier — Tiruppur & Coimbatore",
     description:
       "Official haute couture portfolio of Praweena NS, contemporary fashion designer and founder of KHAIRA Atelier. Poetry in Thread, Modern in Silhouette.",
     images: ["/images/founder/praweena-hero.png"],

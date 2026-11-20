@@ -7,7 +7,7 @@ export default function EditorialMarquee() {
     "KHAIRA ATELIER",
     "AHIMSA SILK & COUTURE ARCHITECTURE",
     "BOTANICAL DYES & ZERO-WASTE DRAPING",
-    "COIMBATORE & TIRUPPUR",
+    "TIRUPPUR & COIMBATORE",
   ];
 
   return (

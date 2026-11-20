@@ -145,7 +145,7 @@ export default function ContactPage() {
                     Atelier Location & Appointments
                   </p>
                   <p className="font-serif text-lg text-[#1C1A20] dark:text-[#F5F1E8]">
-                    Coimbatore & Tiruppur, Tamil Nadu
+                    Tiruppur & Coimbatore, Tamil Nadu
                   </p>
                   <p className="font-sans text-xs text-[#57525E] dark:text-[#B5AFA6] mt-0.5">
                     Private Atelier & Virtual Consultations Worldwide

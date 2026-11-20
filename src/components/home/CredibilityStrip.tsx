@@ -23,7 +23,7 @@ export default function CredibilityStrip() {
     {
       icon: MapPin,
       eyebrow: "ATELIER BASE",
-      title: "Coimbatore & Tiruppur",
+      title: "Tiruppur & Coimbatore",
       subtitle: "Tamil Nadu, India • Worldwide Virtual",
     },
   ];

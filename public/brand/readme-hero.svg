@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="210" viewBox="0 0 900 210" fill="none">
+  <defs>
+    <!-- Background Obsidian Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141318"/>
+      <stop offset="50%" stop-color="#121115"/>
+      <stop offset="100%" stop-color="#18161D"/>
+    </linearGradient>
+
+    <!-- Radial Glows -->
+    <radialGradient id="goldGlow" cx="25%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#B6A17A" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#B6A17A" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#121115" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lavenderGlow" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#9281CE" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#9281CE" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#121115" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Border Linear Shimmer -->
+    <linearGradient id="borderShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B6A17A" stop-opacity="0.15"/>
+      <stop offset="30%" stop-color="#B6A17A" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#F5F1E8" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#9281CE" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#B6A17A" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <linearGradient id="textGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8DEC8"/>
+      <stop offset="50%" stop-color="#F5F1E8"/>
+      <stop offset="100%" stop-color="#D4C4A8"/>
+    </linearGradient>
+
+    <style>
+      .eyebrow {
+        font-family: 'Cinzel', 'Trajan Pro', 'Bodoni Moda', Georgia, serif;
+        font-size: 10.5px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        fill: #C9B38C;
+        font-weight: 600;
+      }
+      .brand-title {
+        font-family: 'Cinzel', 'Bodoni Moda', 'Playfair Display', Didot, Georgia, serif;
+        font-size: 38px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        fill: url(#textGold);
+        font-weight: 700;
+        filter: drop-shadow(0 2px 14px rgba(182, 161, 122, 0.25));
+      }
+      .subtitle {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        fill: #E5DEC9;
+        font-weight: 400;
+        opacity: 0.9;
+      }
+      .location {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 9.5px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        fill: #9281CE;
+        font-weight: 500;
+        opacity: 0.95;
+      }
+      .particle {
+        animation: float 6s ease-in-out infinite alternate;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Plate -->
+  <rect width="900" height="210" rx="14" fill="url(#bgGrad)"/>
+  <rect width="900" height="210" rx="14" fill="url(#goldGlow)"/>
+  <rect width="900" height="210" rx="14" fill="url(#lavenderGlow)"/>
+
+  <!-- Outer Architectural Hairline Frame -->
+  <rect x="12" y="12" width="876" height="186" rx="8" stroke="url(#borderShimmer)" stroke-width="1" stroke-opacity="0.6"/>
+  <rect x="16" y="16" width="868" height="178" rx="6" stroke="#B6A17A" stroke-width="0.5" stroke-opacity="0.25" stroke-dasharray="6 4"/>
+
+  <!-- Corner Ornamental Accents -->
+  <path d="M 24 32 L 24 24 L 32 24" stroke="#B6A17A" stroke-width="1.5" fill="none"/>
+  <path d="M 876 32 L 876 24 L 868 24" stroke="#B6A17A" stroke-width="1.5" fill="none"/>
+  <path d="M 24 178 L 24 186 L 32 186" stroke="#B6A17A" stroke-width="1.5" fill="none"/>
+  <path d="M 876 178 L 876 186 L 868 186" stroke="#B6A17A" stroke-width="1.5" fill="none"/>
+
+  <!-- Floating Golden & Lavender Silk Particles -->
+  <circle cx="110" cy="55" r="2" fill="#B6A17A" opacity="0.6">
+    <animate attributeName="cy" values="55;48;55" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="220" cy="160" r="1.5" fill="#9281CE" opacity="0.5">
+    <animate attributeName="cy" values="160;152;160" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="780" cy="65" r="2.2" fill="#B6A17A" opacity="0.55">
+    <animate attributeName="cy" values="65;57;65" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.85;0.3" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="680" cy="155" r="1.8" fill="#9281CE" opacity="0.5">
+    <animate attributeName="cy" values="155;147;155" dur="5.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.75;0.2" dur="5.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="450" cy="38" r="1.2" fill="#F5F1E8" opacity="0.7">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Typography Hierarchy -->
+  <!-- 1. Eyebrow Tag -->
+  <g transform="translate(450, 52)">
+    <text text-anchor="middle" class="eyebrow">✦  HAUTE COUTURE &amp; TEXTILE ARCHITECTURE  ✦</text>
+  </g>
+
+  <!-- 2. Main Brand Title -->
+  <g transform="translate(450, 106)">
+    <text text-anchor="middle" class="brand-title">KHAIRA ATELIER</text>
+  </g>
+
+  <!-- 3. Subtitle / Designer Attribution -->
+  <g transform="translate(450, 142)">
+    <text text-anchor="middle" class="subtitle">PRAWEENA NS  •  POETRY IN THREAD, MODERN IN SILHOUETTE</text>
+  </g>
+
+  <!-- Thin Center Flourish Hairline -->
+  <line x1="340" y1="156" x2="560" y2="156" stroke="url(#borderShimmer)" stroke-width="0.75" stroke-opacity="0.7"/>
+
+  <!-- 4. Studio Location -->
+  <g transform="translate(450, 175)">
+    <text text-anchor="middle" class="location">TIRUPPUR &amp; COIMBATORE, TAMIL NADU, INDIA</text>
+  </g>
+</svg>

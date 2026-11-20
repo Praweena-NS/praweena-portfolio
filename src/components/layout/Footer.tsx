@@ -99,8 +99,11 @@ export default function Footer() {
           })}
         </div>
 
-        {/* Copyright notice */}
+        {/* Copyright notice & Location */}
         <div className="text-center md:text-right text-xs font-sans tracking-widest text-[#57525E] dark:text-[#B5AFA6] uppercase">
+          <p className="text-[10px] font-mono tracking-wider opacity-85 mb-1 text-[#6E5D3F] dark:text-[#C9B38C]">
+            Tiruppur &amp; Coimbatore, Tamil Nadu
+          </p>
           <p>© {currentYear} KHAIRA Atelier. All rights reserved.</p>
         </div>
       </div>

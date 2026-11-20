@@ -53,7 +53,7 @@ export function GlobalJsonLd() {
     email: profileData.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Coimbatore & Tiruppur",
+      addressLocality: "Tiruppur & Coimbatore",
       addressRegion: "Tamil Nadu",
       addressCountry: "IN",
     },

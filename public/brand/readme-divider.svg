@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="24" viewBox="0 0 900 24" fill="none">
+  <defs>
+    <linearGradient id="dividerFade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B6A17A" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#B6A17A" stop-opacity="0.3"/>
+      <stop offset="48%" stop-color="#E8DEC8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#F5F1E8" stop-opacity="1"/>
+      <stop offset="52%" stop-color="#E8DEC8" stop-opacity="0.8"/>
+      <stop offset="75%" stop-color="#9281CE" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#9281CE" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5F1E8" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#B6A17A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#121115" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Horizontal Hairlines -->
+  <line x1="40" y1="12" x2="420" y2="12" stroke="url(#dividerFade)" stroke-width="1"/>
+  <line x1="480" y1="12" x2="860" y2="12" stroke="url(#dividerFade)" stroke-width="1"/>
+
+  <!-- Center Diamond Aura -->
+  <circle cx="450" cy="12" r="10" fill="url(#centerGlow)"/>
+
+  <!-- Center Diamond Node -->
+  <g transform="translate(450, 12)">
+    <polygon points="0,-5 5,0 0,5 -5,0" fill="#F5F1E8" stroke="#B6A17A" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="1.2" fill="#9281CE">
+      <animate attributeName="r" values="1;1.8;1" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Secondary Satellite Diamond Dots -->
+  <polygon points="432,10.5 434,12 432,13.5 430,12" fill="#B6A17A" opacity="0.6"/>
+  <polygon points="468,10.5 470,12 468,13.5 466,12" fill="#B6A17A" opacity="0.6"/>
+</svg>
