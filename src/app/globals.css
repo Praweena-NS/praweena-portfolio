@@ -1,0 +1,503 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Global Night Mode Contrast Guarantee — Prevents ANY dark-on-dark text across all routes */
+html.dark,
+html.dark body {
+  background-color: #121115 !important;
+  color: #F5F1E8 !important;
+}
+
+/* Automatically invert hardcoded Ink text & Ivory/White surfaces in Night Mode */
+html.dark .text-\[\#1C1A20\],
+html.dark .text-ink {
+  color: #F5F1E8 !important;
+}
+
+html.dark .text-\[\#1C1A20\]\/90,
+html.dark .text-\[\#1C1A20\]\/85,
+html.dark .text-\[\#1C1A20\]\/80,
+html.dark .text-ink\/90,
+html.dark .text-ink\/85,
+html.dark .text-ink\/80 {
+  color: rgba(245, 241, 232, 0.88) !important;
+}
+
+html.dark .text-\[\#1C1A20\]\/75,
+html.dark .text-\[\#1C1A20\]\/70,
+html.dark .text-\[\#1C1A20\]\/65,
+html.dark .text-\[\#1C1A20\]\/60,
+html.dark .text-\[\#57525E\],
+html.dark .text-ink\/75,
+html.dark .text-ink\/70,
+html.dark .text-ink\/60,
+html.dark .text-ink\/50,
+html.dark .text-\[\#1C1A20\]\/50 {
+  color: #B5AFA6 !important;
+}
+
+/* Automatically adapt hardcoded light surfaces to Obsidian Velvet / Charcoal Silk in Night Mode */
+html.dark .bg-\[\#F5F1E8\],
+html.dark .bg-ivory {
+  background-color: #121115 !important;
+}
+
+html.dark .bg-\[\#F5F1E8\]\/95,
+html.dark .bg-\[\#F5F1E8\]\/90,
+html.dark .bg-\[\#F5F1E8\]\/85 {
+  background-color: rgba(18, 17, 21, 0.94) !important;
+}
+
+html.dark .bg-\[\#EFE9DC\],
+html.dark .bg-\[\#EBE5D8\],
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-white\/60,
+html.dark .bg-white\/50 {
+  background-color: #1B1920 !important;
+}
+
+/* Keep explicit dark callout bands visually distinct in Night Mode */
+html.dark section.bg-\[\#1C1A20\],
+html.dark div.bg-\[\#1C1A20\].text-\[\#F5F1E8\] {
+  background-color: #19171E !important;
+  border-top: 1px solid rgba(201, 179, 140, 0.2);
+  border-bottom: 1px solid rgba(201, 179, 140, 0.2);
+}
+
+/* Primary Ink Buttons invert to Luminous Ivory with Dark Text in Night Mode */
+html.dark a.bg-\[\#1C1A20\],
+html.dark button.bg-\[\#1C1A20\],
+html.dark a.bg-ink,
+html.dark button.bg-ink {
+  background-color: #F5F1E8 !important;
+  color: #121115 !important;
+}
+
+/* Active Swatch Card Contrast Guarantee (InteractiveAtelierStudio) */
+/* Day Mode Active Swatch */
+html:not(.dark) button[data-active-swatch="true"] {
+  background-color: #1C1A20 !important;
+}
+html:not(.dark) button[data-active-swatch="true"] h3 {
+  color: #F5F1E8 !important;
+}
+html:not(.dark) button[data-active-swatch="true"] span {
+  color: #B6A17A !important;
+}
+
+/* Night Mode Active Swatch */
+html.dark button[data-active-swatch="true"],
+html.dark .dark\:bg-\[\#F5F1E8\] {
+  background-color: #F5F1E8 !important;
+}
+html.dark button[data-active-swatch="true"] h3,
+html.dark .dark\:bg-\[\#F5F1E8\] .dark\:text-\[\#121115\],
+html.dark .dark\:bg-\[\#F5F1E8\] h3,
+html.dark .bg-\[\#F5F1E8\] .text-\[\#121115\],
+html.dark .dark\:text-\[\#121115\],
+html.dark .text-\[\#121115\] {
+  color: #121115 !important;
+}
+html.dark button[data-active-swatch="true"] span,
+html.dark .dark\:bg-\[\#F5F1E8\] .dark\:text-\[\#8C7752\],
+html.dark .dark\:text-\[\#8C7752\] {
+  color: #8C7752 !important;
+}
+
+/* Restore Signature Moonlit Lavender Hover Effects in Night Mode */
+html.dark a:hover,
+html.dark button:hover .group-hover\:text-lavender,
+html.dark .hover\:text-lavender:hover,
+html.dark .hover\:text-\[\#9281CE\]:hover,
+html.dark .dark\:hover\:text-\[\#A998E6\]:hover,
+html.dark .group:hover .group-hover\:text-lavender,
+html.dark .group:hover .dark\:group-hover\:text-\[\#A998E6\] {
+  color: #A998E6 !important;
+}
+
+html.dark a.bg-\[\#1C1A20\]:hover,
+html.dark button.bg-\[\#1C1A20\]:hover,
+html.dark .hover\:bg-lavender:hover,
+html.dark .hover\:bg-\[\#9281CE\]:hover,
+html.dark .dark\:hover\:bg-\[\#A998E6\]:hover {
+  background-color: #A998E6 !important;
+  color: #121115 !important;
+  border-color: #A998E6 !important;
+}
+
+html.dark .hover\:border-lavender:hover,
+html.dark .hover\:border-\[\#9281CE\]:hover,
+html.dark .dark\:hover\:border-\[\#A998E6\]:hover {
+  border-color: #A998E6 !important;
+}
+
+/* Keep Birthday Modal strictly in its signature Ivory & Champagne palette — NEVER invert text */
+/* These overrides prevent dark mode from turning modal text invisible (ivory-on-ivory) */
+[data-birthday-modal="true"] .bg-\[\#F5F1E8\],
+html.dark [data-birthday-modal="true"] .bg-\[\#F5F1E8\] {
+  background-color: #F5F1E8 !important;
+}
+
+[data-birthday-modal="true"] h2,
+html.dark [data-birthday-modal="true"] h2 {
+  color: #1C1A20 !important;
+}
+
+[data-birthday-modal="true"] p,
+html.dark [data-birthday-modal="true"] p {
+  color: #2A2730 !important;
+}
+
+[data-birthday-modal="true"] .text-\[\#1C1A20\],
+html.dark [data-birthday-modal="true"] .text-\[\#1C1A20\] {
+  color: #1C1A20 !important;
+}
+
+[data-birthday-modal="true"] .text-\[\#4A4550\],
+html.dark [data-birthday-modal="true"] .text-\[\#4A4550\] {
+  color: #4A4550 !important;
+}
+
+[data-birthday-modal="true"] .text-\[\#2A2730\],
+html.dark [data-birthday-modal="true"] .text-\[\#2A2730\] {
+  color: #2A2730 !important;
+}
+
+[data-birthday-modal="true"] .text-\[\#2A2730\]\/85,
+html.dark [data-birthday-modal="true"] .text-\[\#2A2730\]\/85 {
+  color: rgba(42, 39, 48, 0.85) !important;
+}
+
+[data-birthday-modal="true"] .text-\[\#6E5D3F\],
+html.dark [data-birthday-modal="true"] .text-\[\#6E5D3F\] {
+  color: #6E5D3F !important;
+}
+
+/* CTA button inside birthday modal — always dark ink bg with ivory text */
+[data-birthday-modal="true"] button.bg-\[\#1C1A20\],
+html.dark [data-birthday-modal="true"] button.bg-\[\#1C1A20\] {
+  background-color: #1C1A20 !important;
+  color: #F5F1E8 !important;
+}
+
+[data-birthday-modal="true"] button.bg-\[\#1C1A20\]:hover,
+html.dark [data-birthday-modal="true"] button.bg-\[\#1C1A20\]:hover {
+  background-color: #59469C !important;
+  color: #F5F1E8 !important;
+}
+
+/* WCAG AA Compliance: #B6A17A and #9281CE for borders/accents, #6E5D3F (Deep Antique Bronze) and #59469C (Deep Royal Violet) for readable text on Light Mode (#F5F1E8) */
+html:not(.dark) .text-champagne:not(.text-on-dark),
+html:not(.dark) .text-\[\#B6A17A\]:not(.text-on-dark) {
+  color: #6E5D3F;
+}
+
+html:not(.dark) .text-lavender:not(.text-on-dark),
+html:not(.dark) .text-\[\#9281CE\]:not(.text-on-dark) {
+  color: #59469C;
+}
+
+/* Explicit dark callout backgrounds retain luminous Champagne / Lavender */
+html:not(.dark) .bg-\[\#1C1A20\] .text-champagne,
+html:not(.dark) .bg-\[\#1C1A20\] .text-\[\#B6A17A\],
+html:not(.dark) .bg-ink .text-champagne,
+html:not(.dark) .bg-ink .text-\[\#B6A17A\] {
+  color: #B6A17A !important;
+}
+
+/* WCAG AA Interactive Focus-Visible Rings Across All Interactive Elements */
+:focus-visible {
+  outline: 2px solid #59469C !important;
+  outline-offset: 3px !important;
+}
+
+html.dark :focus-visible {
+  outline: 2px solid #A998E6 !important;
+  outline-offset: 3px !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="tab"]:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #59469C !important;
+  outline-offset: 3px !important;
+}
+
+html.dark a:focus-visible,
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible,
+html.dark select:focus-visible,
+html.dark [role="tab"]:focus-visible,
+html.dark [role="button"]:focus-visible {
+  outline: 2px solid #A998E6 !important;
+  outline-offset: 3px !important;
+}
+
+/* Visual Restraint & prefers-reduced-motion: Disable continuous/parallax animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce {
+    animation: none !important;
+  }
+}
+
+:root {
+  /* Day Mode (Warm Silk Atelier — Default) */
+  --bg-canvas: #F5F1E8;
+  --bg-surface: #EFE9DC;
+  --text-primary: #1C1A20;
+  --text-muted: #57525E;
+  --accent-primary: #9281CE;
+  --accent-gold: #B6A17A;
+
+  --ivory: #F5F1E8;
+  --ink: #1C1A20;
+  --lavender: #9281CE;
+  --champagne: #B6A17A;
+
+  --font-couture: 'Italiana', Georgia, serif;
+  --font-bodoni: 'Bodoni Moda', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cinzel', Georgia, serif;
+
+  --font-luxca: var(--font-couture);
+  --font-careny: var(--font-bodoni);
+  --font-karimun: var(--font-cormorant);
+}
+
+html.dark {
+  /* Night Mode (Midnight Haute Couture) */
+  --bg-canvas: #121115;
+  --bg-surface: #1B1920;
+  --text-primary: #F5F1E8;
+  --text-muted: #B5AFA6;
+  --accent-primary: #A998E6;
+  --accent-gold: #C9B38C;
+
+  --ivory: #F5F1E8;
+  --ink: #1C1A20;
+  --lavender: #A998E6;
+  --champagne: #C9B38C;
+}
+
+html.dark,
+html.dark body {
+  background-color: #121115 !important;
+  color: #F5F1E8 !important;
+}
+
+html {
+  scroll-behavior: auto; /* Handled smoothly by Lenis */
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 0ms Pre-Paint Birthday Veil Gate (Prevents any homepage flash) */
+html.birthday-unveil-active {
+  overflow: hidden !important;
+}
+
+html.birthday-unveil-active body {
+  overflow: hidden !important;
+}
+
+html.birthday-unveil-active::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1C1A20;
+  z-index: 9998;
+  pointer-events: auto;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* True High-Fashion Editorial Typography (Luxca + Careny + Karimun + Italiana + Bodoni Moda) */
+h1,
+.font-couture,
+.font-luxca {
+  font-family: var(--font-luxca, var(--font-couture)), var(--font-bodoni), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+h2,
+h3,
+.font-serif,
+.font-careny {
+  font-family: var(--font-careny, var(--font-bodoni)), Georgia, serif;
+}
+
+h4,
+h5,
+h6 {
+  font-family: var(--font-careny, var(--font-bodoni)), Georgia, serif;
+}
+
+/* Ultra-tracked Atelier Display & Micro-Labels */
+.font-display {
+  font-family: var(--font-luxca, var(--font-couture)), var(--font-display), serif;
+  letter-spacing: 0.28em;
+}
+
+.font-editorial,
+.font-karimun {
+  font-family: var(--font-karimun, var(--font-cormorant)), Georgia, serif;
+}
+
+/* Exposed Architectural Hairlines */
+.hairline-b {
+  border-bottom: 1px solid rgba(182, 161, 122, 0.25);
+}
+
+.hairline-t {
+  border-top: 1px solid rgba(182, 161, 122, 0.25);
+}
+
+.hairline-r {
+  border-right: 1px solid rgba(182, 161, 122, 0.25);
+}
+
+.hairline-l {
+  border-left: 1px solid rgba(182, 161, 122, 0.25);
+}
+
+/* Custom Lenis Smooth Scroll Setup */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Silk Curtain Reveal Clip Path */
+@keyframes curtainWipe {
+  0% {
+    clip-path: inset(100% 0% 0% 0%);
+    transform: scale(1.08);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+    transform: scale(1.0);
+  }
+}
+
+/* Comprehensive Haute Couture Editorial Print Lookbook Stylesheet */
+@media print {
+  /* Hide interactive / non-printable UI elements */
+  header,
+  footer,
+  nav,
+  canvas,
+  button,
+  [data-lenis-prevent],
+  .fixed,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and color balance for clean physical lookbook printing */
+  body {
+    background: #ffffff !important;
+    color: #1C1A20 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Force image fidelity & integrity */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    break-inside: avoid;
+  }
+
+  /* Editorial page break controls */
+  article,
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* KHAIRA Atelier Editorial Print Header */
+  body::before {
+    content: "KHAIRA ATELIER • POETRY IN THREAD, MODERN IN SILHOUETTE • FOUNDER: PRAWEENA NS";
+    display: block;
+    text-align: center;
+    font-family: serif;
+    font-size: 10pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #B6A17A;
+    padding: 12pt 0;
+    border-bottom: 1pt solid #B6A17A;
+    margin-bottom: 24pt;
+  }
+
+  /* Standard Haute Couture Lookbook A4 Margins */
+  @page {
+    margin: 1.5cm 2cm;
+    size: A4 portrait;
+  }
+
+  /* Clean link display */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 7.5pt;
+    color: #888888;
+  }
+  a[href^="/"]::after,
+  a[href^="#"]::after {
+    content: none;
+  }
+}

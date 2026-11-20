@@ -1,0 +1,128 @@
+[
+  {
+    "id": "fuchsia-symphony-twinning",
+    "title": "Fuchsia Symphony: Couture Twinning",
+    "category": "1st Fashion Show",
+    "orientation": "portrait",
+    "status": "published",
+    "featured": true,
+    "season": "1st Runway Showcase • KPR College of Arts Science and Research",
+    "year": "2025",
+    "coverImage": "/images/collections/runway-01-twinning.jpg",
+    "images": [
+      "/images/collections/runway-01-twinning.jpg"
+    ],
+    "imageAlts": [
+      "Fuchsia Symphony Couture Twinning Ensemble on Runway by Praweena NS"
+    ],
+    "description": "A coordinated couture duo ensemble exploring silhouette scaling across generations—pairing a sheer beaded-stripe magenta bodice and voluminous multi-tiered tulle skirt with a miniature ruffled frock accented by metallic peplum detailing.",
+    "objective": "Translate adult couture proportions into a cohesive child-and-adult runway pairing while maintaining stage movement and structural lightness.",
+    "inspiration": "The rhythm of parallel silhouettes and celebratory South Indian festive vibrancy rendered in modern Western tulle.",
+    "techniques": [
+      "Multi-Tiered Tulle Gathering",
+      "Sheer Illusion Sleeve Construction",
+      "Linear Sequin & Bead Embellishments",
+      "Proportion Scaling Across Age Groups"
+    ],
+    "materials": [
+      "Soft Magenta Tulle",
+      "Sheer Striped Mesh",
+      "Metallic Lilac Satin",
+      "Hand-Sewn Glass Beads"
+    ],
+    "credits": [
+      { "role": "Creative Direction & Patternmaking", "name": "Praweena NS" },
+      { "role": "Showcase", "name": "1st Fashion Show • KPR College of Arts Science and Research" }
+    ],
+    "colorStory": [
+      { "name": "Electric Magenta", "hex": "#C81D77" },
+      { "name": "Rose Tulle", "hex": "#E85D9E" },
+      { "name": "Metallic Lilac", "hex": "#D8B4E2" },
+      { "name": "Silver Bead", "hex": "#E5E7EB" }
+    ]
+  },
+  {
+    "id": "blush-petals-organza",
+    "title": "Blush Petals & Hand-Tufted Pompoms",
+    "category": "2nd Fashion Show",
+    "orientation": "portrait",
+    "status": "published",
+    "featured": true,
+    "season": "2nd Runway Showcase • KPR College of Arts Science and Research",
+    "year": "2025",
+    "coverImage": "/images/collections/runway-02-blush-organza.jpg",
+    "images": [
+      "/images/collections/runway-02-blush-organza.jpg"
+    ],
+    "imageAlts": [
+      "Blush Petals & Hand-Tufted Pompoms Runway Ensemble by Praweena NS"
+    ],
+    "description": "A romantic peach-pink sheer organza two-piece ensemble featuring bishop sleeves with flared bell cuffs, a pleated sweetheart bodice with gold zari neckline embroidery, 3D lavender floral appliqués, and hand-tufted crimson berry pom-poms scattered across the flowing skirt.",
+    "objective": "Balance translucent volume and delicate pastel organza with bold, three-dimensional surface ornamentation that reads clearly under runway lighting.",
+    "inspiration": "Botanical blossoms in full bloom—contrasting airy translucent petals against tactile, jewel-toned berry accents.",
+    "techniques": [
+      "Bishop Sleeve & Bell Cuff Drafting",
+      "Hand-Tufted 3D Pom-Pom Surface Work",
+      "Gold Zari Neckline Embroidery",
+      "3D Floral Appliqué Placement"
+    ],
+    "materials": [
+      "Peach-Pink Silk Organza",
+      "Soft Lining Crepe",
+      "Gold Zari Thread",
+      "Hand-Tufted Crimson Yarn"
+    ],
+    "credits": [
+      { "role": "Garment Construction & Surface Ornamentation", "name": "Praweena NS" },
+      { "role": "Showcase", "name": "2nd Fashion Show • KPR College of Arts Science and Research" }
+    ],
+    "colorStory": [
+      { "name": "Peach Blossom", "hex": "#F29F9B" },
+      { "name": "Crimson Berry", "hex": "#B91C3B" },
+      { "name": "Orchid Appliqué", "hex": "#9B7EDE" },
+      { "name": "Antique Zari Gold", "hex": "#D4AF37" }
+    ]
+  },
+  {
+    "id": "celestial-avant-garde-ensemble",
+    "title": "Celestial & Avant-Garde Ensemble",
+    "category": "3rd Fashion Show • Theme-Based",
+    "orientation": "landscape",
+    "status": "published",
+    "featured": true,
+    "season": "3rd Runway Showcase • Theme-Based Collection",
+    "year": "2026",
+    "coverImage": "/images/collections/runway-03-theme-ensemble.jpg",
+    "images": [
+      "/images/collections/runway-03-theme-ensemble.jpg"
+    ],
+    "imageAlts": [
+      "Four-look Celestial & Avant-Garde Runway Collection with Sunburst Millinery and Lotus Staff by Praweena NS"
+    ],
+    "description": "A four-look theme-based runway collection uniting sculptural womenswear and contemporary menswear—featuring geometric diamond-petal tailoring with a sunburst wire headpiece, a powder-blue cascading ruffle asymmetric jacket, an iridescent winged gown, and a metallic lattice-cutout ensemble with a sculptural lotus staff.",
+    "objective": "Execute a cohesive four-model narrative theme combining architectural pattern-making, iridescent textile manipulation, and custom runway millinery/props.",
+    "inspiration": "Celestial geometry, mythical archetypes, and sculptural contrast between rigid origami-like pleats and fluid holographic surfaces.",
+    "techniques": [
+      "3D Geometric Petal Pattern-Making",
+      "Asymmetric Cascading Ruffle Draping",
+      "Lattice Cutout & Metallic Threadwork",
+      "Custom Wire Millinery & Runway Prop Fabrication"
+    ],
+    "materials": [
+      "Imperial Plum & Ivory Satin",
+      "Glacier Blue Suiting",
+      "Iridescent Holographic Organza",
+      "Metallic Lattice Mesh"
+    ],
+    "credits": [
+      { "role": "Collection Concept, Tailoring & Millinery", "name": "Praweena NS" },
+      { "role": "Showcase", "name": "3rd Fashion Show • Theme-Based Runway Presentation" }
+    ],
+    "colorStory": [
+      { "name": "Imperial Plum", "hex": "#4A2545" },
+      { "name": "Glacier Blue", "hex": "#93B7BE" },
+      { "name": "Iridescent Opal", "hex": "#A8E6CF" },
+      { "name": "Obsidian Lattice", "hex": "#1C1A20" }
+    ]
+  }
+]

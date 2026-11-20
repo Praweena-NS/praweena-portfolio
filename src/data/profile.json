@@ -1,0 +1,106 @@
+{
+  "name": "Praweena NS",
+  "shortName": "Praweena",
+  "tagline": "Poetry in Thread, Modern in Silhouette.",
+  "logoUrl": "/brand/khaira-logo.png",
+  "bio": "I am a fashion designer, costume design researcher, and founder of the luxury atelier KHAIRA, as well as co-founder of Floral Fusion. Currently pursuing my B.Sc. in Costume Design and Fashion at KPR College of Arts Science and Research (2024–2027), my work harmonizes age-old artisanal craft with rigorous modern tailoring, sculpting garments that feel weightless yet emotionally resonant. With a deep commitment to sustainable provenance, botanical sensibilities, and tactile luxury, I treat every collection and design endeavor as a living narrative of fabric, movement, and form.",
+  "portraitImage": "/images/founder/praweena-about.png",
+  "email": "thekhaira.atelier@gmail.com",
+  "personalEmail": "praweenans05@gmail.com",
+  "location": "Coimbatore & Tiruppur, Tamil Nadu • Private Atelier & Virtual Consultations Worldwide",
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/praweena._.05",
+    "linkedin": "https://www.linkedin.com/in/praweena-ns/",
+    "behance": "https://www.behance.net/praweena-ns",
+    "floralFusion": "https://www.instagram.com/floral_fusion.in"
+  },
+  "education": [
+    {
+      "degree": "B.Sc. Costume Design and Fashion",
+      "institution": "KPR College of Arts Science and Research",
+      "year": "2024 — 2027 (Present)",
+      "details": "Specialization in garment construction, fashion illustration, textile science, advanced draping, surface ornamentation, and contemporary costume design."
+    }
+  ],
+  "floralFusion": {
+    "title": "Floral Fusion",
+    "role": "Co-Founder & Creative Director",
+    "foundingDate": "September 2026",
+    "instagram": "https://www.instagram.com/floral_fusion.in",
+    "tagline": "Fresh Flowers • Lasting Smiles | Thoughtful Gifts • Bigger Joy",
+    "description": "A curated boutique venture co-founded by me, Floral Fusion offers bespoke floral arrangements and custom luxury hampers, merging botanical aesthetics with thoughtful handcrafted gifting.",
+    "bouquets": [
+      "Flower Bouquet",
+      "Chocolate Bouquet",
+      "Mini Perfume Bouquet",
+      "Self-Care Bouquet",
+      "Snack Bouquet",
+      "Teddy + Flower Bouquet",
+      "Customized Birthday Bouquet",
+      "Polaroid Bouquet"
+    ],
+    "hampers": [
+      "Birthday Hamper",
+      "Bridesmaid Hamper",
+      "Couple Hamper",
+      "Self-Care Hamper",
+      "Chocolate Hamper",
+      "Mini Luxury Hamper",
+      "Baby Shower Hamper",
+      "Festive Hamper",
+      "Anniversary Hamper",
+      "Graduation Hamper",
+      "Corporate Hamper"
+    ]
+  },
+  "shortBio": "Praweena NS is a contemporary fashion designer and costume design researcher pursuing her B.Sc. at KPR College. As founder of KHAIRA Atelier, she harmonizes age-old Indian craftsmanship with modern silhouettes. She also co-founded Floral Fusion, an artisanal gifting venture.",
+  "availabilityText": "Accepting Bespoke & Collaborative Commissions",
+    "philosophy": {
+    "heading": "Design Philosophy & Artistic Manifesto",
+    "pullQuote": "A garment is not merely tailored cloth; it is poetry suspended in thread, animated only by the living body that inhabits it.",
+    "manifesto": [
+      "At KHAIRA, I reject the ephemeral churn of fast fashion. Instead, I anchor each silhouette in sculptural permanence, artisanal memory, and the honest physics of tactile fiber.",
+      "My work explores the tension between structural discipline and sensual release. I marry the architectural precision of bespoke tailoring with the fluid, unstitched grace of historical Indian drapery.",
+      "Every fabric that enters my atelier has a pedigree of dignity: woven on wooden pit looms, dyed with earth minerals, and handcrafted by generational artisans whose knowledge breathes life into every yard."
+    ],
+    "pillars": [
+      {
+        "title": "Traditional & Contemporary Influences",
+        "subtitle": "Poetry in Thread",
+        "description": "Harmonizing centuries-old Indian royal court draperies and Banarasi brocades with modernist structural precision, clean lines, and kinetic geometry."
+      },
+      {
+        "title": "Textile & Material Exploration",
+        "subtitle": "Craft & Surface",
+        "description": "Pioneering variable-tension Ahimsa silks, botanical dye extractions (indigofera, madder, marigold), and intricate Zardozi wirework engineered to reflect natural light."
+      },
+      {
+        "title": "Sustainable Craftsmanship",
+        "subtitle": "Modern Silhouette",
+        "description": "Committed to cruelty-free sericulture, zero-waste circular cutting patterns, and equitable patron agreements that sustain indigenous weaver guilds across India."
+      }
+    ]
+  },
+  "brandStory": {
+    "headline": "The Genesis of KHAIRA: Preserving the Loom, Reimagining the Silhouette",
+    "narrative": [
+      "I founded KHAIRA out of a profound reverence for India's textile legacy and a sharp desire to emancipate it from traditional confines. For centuries, our country's finest weaves were relegated to heavy, ceremonial occasions—stiff, unyielding, and bound to history.",
+      "I envisioned a different destiny: handloom Ahimsa silks transformed into razor-sharp tailored lapels; Banarasi kadhwa brocades engineered into fluid evening capes; and artisanal pleats that move with the velocity of modern life.",
+      "Today, alongside my costume design studies at KPR College and co-founding the artisanal venture Floral Fusion, I shape KHAIRA as a dedicated atelier for the discerning patron who values understated luxury, ethical provenance, and silhouettes that command presence without raising their voice."
+    ],
+    "milestones": [
+      {
+        "year": "2025",
+        "title": "Founding the KHAIRA Atelier",
+        "category": "Label Genesis",
+        "description": "Established KHAIRA with the artistic ethos 'Poetry in Thread, Modern in Silhouette', bridging Indian handloom fabrics with sharp contemporary tailoring."
+      },
+      {
+        "year": "Sep 2026",
+        "title": "Co-Founding Floral Fusion",
+        "category": "Creative Venture",
+        "description": "Co-founded Floral Fusion (@floral_fusion.in), translating design sensibilities, color harmonies, and packaging aesthetics into artisanal bouquets and curated luxury hampers."
+      }
+    ]
+  }
+}
